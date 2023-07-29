@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>799531082625-iun6ddg9cr0ubo5lj7cnh7jjhaq2s7eh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.799531082625-iun6ddg9cr0ubo5lj7cnh7jjhaq2s7eh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCq66u4E4ypJewpIqK_aej3EXW-aAKSjcQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>799531082625</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mobileSamawa</string>
+	<key>PROJECT_ID</key>
+	<string>mobile-samawa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mobile-samawa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:799531082625:ios:536f570cc69d683e583e80</string>
+</dict>
+</plist>

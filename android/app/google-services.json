@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "799531082625",
+    "project_id": "mobile-samawa",
+    "storage_bucket": "mobile-samawa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799531082625:android:0191dba4697afbd6583e80",
+        "android_client_info": {
+          "package_name": "com.example.mobile_samawa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799531082625-9oprnhismbh9rckjc1hoo5g1eo1eeoe7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile_samawa",
+            "certificate_hash": "673fe4e419ce003570bcc43e0fca5ae48f68343f"
+          }
+        },
+        {
+          "client_id": "799531082625-fupk55i3dmhgim40dc199a1jldcai0ql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvwv3mdIRgzW6ERUbOQSjcj_UpfKIyjNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799531082625-fupk55i3dmhgim40dc199a1jldcai0ql.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "799531082625-iun6ddg9cr0ubo5lj7cnh7jjhaq2s7eh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileSamawa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
