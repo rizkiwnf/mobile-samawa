@@ -1,11 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  GoogleSignIn googleSignIn = GoogleSignIn();
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  Future<User?> register(
+  Future<User?> signUpBasic(
       String email, String password, BuildContext context) async {
     try {
       UserCredential userCredential = await firebaseAuth
@@ -21,7 +24,7 @@ class AuthService {
     }
   }
 
-  Future<User?> login(
+  Future<User?> signInBasic(
       String email, String password, BuildContext context) async {
     try {
       UserCredential userCredential = await firebaseAuth
@@ -49,6 +52,24 @@ class AuthService {
         );
         UserCredential userCredential =
             await firebaseAuth.signInWithCredential(credential);
+        DocumentSnapshot userExist = await firestore
+            .collection('users')
+            .doc(userCredential.user!.uid)
+            .get();
+        if (userExist.exists) {
+          print("User Already Exists in Database");
+        } else {
+          await firestore
+              .collection('users')
+              .doc(userCredential.user!.uid)
+              .set({
+            'uid': userCredential.user!.uid,
+            'email': userCredential.user!.email,
+            'name': userCredential.user!.displayName,
+            'phoneNumber': userCredential.user!.phoneNumber,
+            'date': DateTime.now(),
+          });
+        }
         return userCredential.user;
       }
     } catch (e) {
@@ -63,5 +84,12 @@ class AuthService {
     } catch (e) {
       print(e);
     }
+  }
+
+  void getData() async {
+    User? user = firebaseAuth.currentUser;
+    firestore.collection('users').doc(user?.uid).snapshots().listen((userData) { 
+      
+    });
   }
 }

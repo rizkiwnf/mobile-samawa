@@ -88,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             backgroundColor: Colors.red,
                           ));
                         } else {
-                          User? result = await AuthService().register(
+                          User? result = await AuthService().signUpBasic(
                               emailController.text,
                               passwordController.text,
                               context);
@@ -142,7 +142,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     setState(() {
                       loading = true;
                     });
-                    await AuthService().signInWithGoogle();
+                    User? result = await AuthService().signInWithGoogle();
+                    if (result != null) {
+                      print("success");
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          (route) => false);
+                    }
                     setState(() {
                       loading = false;
                     });

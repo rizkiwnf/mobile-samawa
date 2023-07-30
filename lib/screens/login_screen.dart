@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_samawa/screens/home_screen.dart';
 import 'package:mobile_samawa/screens/register_screen.dart';
 import 'package:mobile_samawa/services/auth_service.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               backgroundColor: Colors.red,
                             ));
                           } else {
-                            User? result = await AuthService().login(
+                            User? result = await AuthService().signInBasic(
                                 emailController.text,
                                 passwordController.text,
                                 context);
@@ -107,6 +108,26 @@ class _LoginScreenState extends State<LoginScreen> {
                             builder: (context) => RegisterScreen()));
                   },
                   child: Text("Not Have an Account ? Register Here")),
+              loading
+                  ? CircularProgressIndicator()
+                  : SignInButton(Buttons.google, text: "Continue with Google",
+                      onPressed: () async {
+                      setState(() {
+                        loading = true;
+                      });
+                      User? result = await AuthService().signInWithGoogle();
+                      if (result != null) {
+                        print("success");
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen()),
+                            (route) => false);
+                      }
+                      setState(() {
+                        loading = false;
+                      });
+                    })
             ],
           ),
         ));
