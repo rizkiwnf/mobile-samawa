@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_samawa/main.dart';
 import 'package:mobile_samawa/screens/home_screen.dart';
 import 'package:mobile_samawa/screens/login_screen.dart';
 import 'package:mobile_samawa/services/auth_service.dart';
@@ -97,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()),
+                                    builder: (context) => MyApp()),
                                 (route) => false);
                           }
                         }
@@ -147,7 +148,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       print("success");
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(builder: (context) => MyApp()),
                           (route) => false);
                     }
                     setState(() {

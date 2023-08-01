@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:http/http.dart' as http;
+import 'package:get/get_connect/http/src/request/request.dart';
 
 class AuthService {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -69,6 +71,7 @@ class AuthService {
             'phoneNumber': userCredential.user!.phoneNumber,
             'date': DateTime.now(),
           });
+          
         }
         return userCredential.user;
       }

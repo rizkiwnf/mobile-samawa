@@ -2,11 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_samawa/models/user_model.dart';
 import 'package:mobile_samawa/screens/add_note.dart';
 import 'package:mobile_samawa/screens/register_screen.dart';
+import 'package:mobile_samawa/screens/search_screen.dart';
 import 'package:mobile_samawa/services/auth_service.dart';
 
 class HomeScreen extends StatefulWidget {
+  UserModel user;
+  HomeScreen(this.user);
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -55,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => AddNoteScreen()));
+              .push(MaterialPageRoute(builder: (context) => SearchScreen(widget.user)));
         },
       ),
     );
